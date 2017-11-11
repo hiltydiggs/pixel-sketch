@@ -1,0 +1,19 @@
+#grid {
+  display: grid;
+  height: 90vh;
+  width: 90vh;
+  margin-top: 5vh;
+  margin-left: 5vh;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.grid-item {
+  height: 100%;
+  width: 100%;
+  background: lightgrey;
+}
+
+.black {
+  background: black;
+}
