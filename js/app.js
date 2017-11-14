@@ -1,11 +1,18 @@
 $(document).ready(function(){
 
+  let mode = 'black';
   let $resetButton = $('#reset');
+  let $colorButton = $('#color');
   let $gridItems;
   let $grid = $('#grid');
   let $gridItem = $('<div></div>', {'class': 'grid-item'});
 
   $resetButton.on('click', resetButton);
+  $colorButton.on('click', function(e) {
+    e.preventDefault();
+    mode = 'color';
+    assignHandler($gridItems);
+  })
 
   function resetButton(e) {
     if (e) {
@@ -30,12 +37,26 @@ $(document).ready(function(){
     }
     $gridItems = $('.grid-item');
     assignHandler($gridItems);
-    removeClass($gridItems, 'black');
+    resetCSS($gridItems);
   }
 
   function assignHandler(els) {
-    els.on('mouseenter', function() {
-      $(this).addClass('black');
+    els.off('mouseenter');
+    if (mode === 'black') {
+      els.on('mouseenter', function() {
+        $(this).css({'background': 'black'});
+      });
+    } else if (mode === 'color') {
+      els.on('mouseenter', function() {
+        $(this).css({'background': `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`})
+      });
+    }
+
+  }
+
+  function resetCSS(els) {
+    els.each(function() {
+      $(this).css({'background': 'lightgrey'});
     });
   }
 
