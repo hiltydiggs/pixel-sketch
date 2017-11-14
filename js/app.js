@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  //initial variables
   let mode = 'black';
   let $resetButton = $('#reset');
   let $colorButton = $('#color');
@@ -8,6 +8,7 @@ $(document).ready(function(){
   let $grid = $('#grid');
   let $gridItem = $('<div></div>', {'class': 'grid-item'});
 
+  //button functions
   $resetButton.on('click', resetButton);
   $colorButton.on('click', function(e) {
     e.preventDefault();
@@ -32,6 +33,7 @@ $(document).ready(function(){
     }
   }
 
+  //main functions
   function createGrid(width) {
     let totalGridItems = width * width;
     $grid.css({
@@ -75,14 +77,6 @@ $(document).ready(function(){
   function resetCSS(els) {
     els.each(function() {
       $(this).css({'background': 'none', 'opacity': 0});
-    });
-  }
-
-  function removeClass(els, cls) {
-    els.each(function() {
-      if ($(this).hasClass(cls)) {
-        $(this).removeClass(cls);
-      }
     });
   }
 
