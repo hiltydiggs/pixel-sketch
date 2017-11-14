@@ -16,14 +16,10 @@
   display: grid;
   height: 90vh;
   width: 90vh;
+  border: 1px solid black;
 }
 
 .grid-item {
   height: 100%;
   width: 100%;
-  background: lightgrey;
-}
-
-.black {
-  background: black;
 }
