@@ -1,15 +1,21 @@
-.reset-button {
+.container {
+  margin-left: 2px;
+}
+
+.button {
   width: 90vh;
   margin-top: 2px;
-  margin-left: 2px;
   margin-bottom: 2px;
+}
+
+.half-button {
+  width: 45vh;
 }
 
 #grid {
   display: grid;
   height: 90vh;
   width: 90vh;
-  margin-left: 2px;
 }
 
 .grid-item {
