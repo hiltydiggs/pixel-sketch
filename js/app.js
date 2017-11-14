@@ -8,9 +8,15 @@ $(document).ready(function(){
   $resetButton.on('click', resetButton);
 
   function resetButton(e) {
-    e.preventDefault();
-    let userInput = prompt('Please enter a grid width (1-100):');
-    createGrid(userInput);
+    if (e) {
+      e.preventDefault();
+    }
+    let userInput = parseInt(prompt('Please enter a grid width (1-100):'));
+    if (userInput > 0 && userInput <= 100) {
+      createGrid(userInput);
+    } else {
+      resetButton();
+    }
   }
 
   function createGrid(width) {
