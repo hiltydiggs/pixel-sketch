@@ -3,6 +3,7 @@ $(document).ready(function(){
   let mode = 'black';
   let $resetButton = $('#reset');
   let $colorButton = $('#color');
+  let $darkenButton = $('#darken');
   let $gridItems;
   let $grid = $('#grid');
   let $gridItem = $('<div></div>', {'class': 'grid-item'});
@@ -12,7 +13,12 @@ $(document).ready(function(){
     e.preventDefault();
     mode = 'color';
     assignHandler($gridItems);
-  })
+  });
+  $darkenButton.on('click', function(e) {
+    e.preventDefault();
+    mode = 'darken';
+    assignHandler($gridItems);
+  });
 
   function resetButton(e) {
     if (e) {
@@ -42,13 +48,25 @@ $(document).ready(function(){
 
   function assignHandler(els) {
     els.off('mouseenter');
-    if (mode === 'black') {
+    if (mode === 'darken') {
       els.on('mouseenter', function() {
-        $(this).css({'background': 'black'});
+        let opacity = +$(this).css('opacity') + 0.1;
+        $(this).css({
+          'background': 'black',
+          'opacity': opacity
+        })
       });
     } else if (mode === 'color') {
       els.on('mouseenter', function() {
-        $(this).css({'background': `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`})
+        $(this).css({
+          'background': `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`,
+          'opacity': 1});
+      });
+    } else {
+      els.on('mouseenter', function() {
+        $(this).css({
+          'background': 'black',
+          'opacity': 1});
       });
     }
 
@@ -56,7 +74,7 @@ $(document).ready(function(){
 
   function resetCSS(els) {
     els.each(function() {
-      $(this).css({'background': 'lightgrey'});
+      $(this).css({'background': 'none', 'opacity': 0});
     });
   }
 
