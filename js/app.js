@@ -2,6 +2,7 @@ $(document).ready(function(){
   //initial variables
   let mode = 'black';
   let $resetButton = $('#reset');
+  let $blackButton = $('#black');
   let $colorButton = $('#color');
   let $darkenButton = $('#darken');
   let $gridItems;
@@ -10,6 +11,11 @@ $(document).ready(function(){
 
   //button functions
   $resetButton.on('click', resetButton);
+  $blackButton.on('click', function(e) {
+    e.preventDefault();
+    mode = 'black';
+    assignHandler($gridItems);
+  });
   $colorButton.on('click', function(e) {
     e.preventDefault();
     mode = 'color';
