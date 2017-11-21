@@ -5,3 +5,5 @@ This project uses jQuery to create an Etcha-Sketch replica. Hovering over the ca
 - Black and White - Just as it sounds
 - Color Mode - Every square is assigned a random RGB color
 - Darken Mode - Progressively darker greyscale with every pass
+
+[Use Pixel Sketch](https://hiltydiggs.github.io/pixel-sketch/)
